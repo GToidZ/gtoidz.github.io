@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/*  Credits for CSS Glitch Effect by Piotr Gator
+    Original Pen: https://codepen.io/pgalor/pen/OeRWJQ
+*/
+
+body{ 
+display: flex;
+flex-direction: column;
+width: 100vw;
+height: 100vh;
+align-items: center;
+justify-content: center;
+margin: 0;
+background: #181122;
+color: #fff;
+font-size: 48px;
+font-family: 'Share Tech Mono', monospace;
+}
+  
+div{
+animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch{
+2%,64%{
+    transform: translate(2px,0) skew(0deg);
+}
+4%,60%{
+    transform: translate(-2px,0) skew(0deg);
+}
+62%{
+    transform: translate(0,0) skew(5deg); 
+}
+}
+
+div:before,
+div:after{
+content: attr(title);
+position: absolute;
+left: 0;
+}
+
+div:before{
+animation: glitchTop 1s linear infinite;
+clip-path: polygon(0 0, 100% 0, 100% 48%, 0 48%);
+-webkit-clip-path: polygon(0 0, 100% 0, 100% 48%, 0 48%);
+}
+
+@keyframes glitchTop{
+2%,64%{
+    transform: translate(2px,-2px);
+}
+4%,60%{
+    transform: translate(-2px,2px);
+}
+62%{
+    transform: translate(17px,-9px) skew(-13deg); 
+}
+}
+
+div:after{
+animation: glitchBotom 1.5s linear infinite;
+clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+-webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom{
+2%,64%{
+    transform: translate(-2px,0);
+}
+4%,60%{
+    transform: translate(-2px,0);
+}
+62%{
+    transform: translate(-32px,16px) skew(21deg); 
+}
+}
+
+a#mail {
+    color: #fff;
+    font-size: 12px;
+    text-decoration: underline;
+}
